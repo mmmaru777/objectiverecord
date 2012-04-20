@@ -7,7 +7,7 @@ Overview
 
 A clone of Ruby on Rails&#39; ActiveRecord to Objective-C (and specifically the iPhone and SQLite). 
 This project aim is to easily access SQLite which is default Dababase of iPhone. 
-If you fllow CoC, you need not write any SQL syntax to manipulate Database. 
+If you follow CoC, you need not write any SQL syntax to manipulate Database. 
 
 Getting Started
 ----------
