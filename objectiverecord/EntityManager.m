@@ -8,7 +8,7 @@
 
 #import "EntityManager.h"
 #import <objc/runtime.h>
- 
+
 @implementation EntityManager
 
 - (id)initWithDataPath:(NSString *)path {
@@ -31,7 +31,6 @@
   dbProvider = nil;
   [super dealloc];
 }
-
 
 - (NSString *)getdbPath {
   return dbPath;
@@ -121,7 +120,7 @@
 }
 
 - (NSArray *)find:(NSString *)className withSql:(NSString *)sqlString {
-
+  
   NSMutableArray *resultEntities = [[[NSMutableArray alloc] init] autorelease];
   
   Class clazz = NSClassFromString(className);
@@ -177,7 +176,7 @@
     
     [nameTypeDic setObject:[column_type_array objectAtIndex:i] forKey:[column_name_array objectAtIndex:i]];
   } 
-
+  
   NSString *sql = [[NSString stringWithFormat:@"%@", sqlString] autorelease];
   
   [dbProvider open];
@@ -270,7 +269,6 @@
   }
   return [self delete:className withSql:sql];
 }
-
 
 @end
 

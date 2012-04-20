@@ -19,14 +19,11 @@
 @synthesize i;
 @synthesize b;
 
-
 - (void)dealloc
 {
-  
-	self.str  = nil;
+  self.str  = nil;
   self.date = nil;
   self.data = nil;
-  
 	[super dealloc];
 }
 

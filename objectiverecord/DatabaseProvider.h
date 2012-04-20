@@ -21,5 +21,4 @@
 - (BOOL)close;
 - (id)executeQuery:(NSString *)sql withArgument:(id)arg;
 
-
 @end

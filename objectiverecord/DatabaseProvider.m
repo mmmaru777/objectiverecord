@@ -31,7 +31,6 @@ static int MAX_RETRY_NUMBER = 10;
   [super dealloc];
 }
 
-
 - (NSString *)sqliteVersion {
   return [NSString stringWithFormat:@"%s", sqlite3_libversion()];
 }
@@ -114,7 +113,7 @@ static int MAX_RETRY_NUMBER = 10;
   sqlite3_reset(statement);
   int resultCode = -1;
   NSMutableArray *selectArray = [[[NSMutableArray alloc]init]autorelease];
-
+  
   do { 
     retry = NO;
     resultCode = sqlite3_step(statement);
@@ -143,11 +142,11 @@ static int MAX_RETRY_NUMBER = 10;
       //sqlite3_step() has another row ready 
       // check if a table exists
       if ([arg isKindOfClass:[NSString class]] && [arg isEqualToString:@"0x00"]) {
-          res = sqlite3_column_int64(statement, 0);
-          sqlite3_finalize(statement);
-          statement = nil;
-          NSNumber *ns_result = [[[NSNumber alloc] initWithLong:res] autorelease];
-          return ns_result;
+        res = sqlite3_column_int64(statement, 0);
+        sqlite3_finalize(statement);
+        statement = nil;
+        NSNumber *ns_result = [[[NSNumber alloc] initWithLong:res] autorelease];
+        return ns_result;
       }
       else if ([arg isKindOfClass:[NSArray class]]) {
         NSMutableDictionary *selectDic  = [NSMutableDictionary dictionary];
@@ -162,11 +161,10 @@ static int MAX_RETRY_NUMBER = 10;
       NSLog(@"DB Query: %@", sql);
     }
   } while (retry || resultCode == SQLITE_ROW);
-    
+  
   sqlite3_finalize(statement);
   statement = nil;
   return selectArray;
 }
-
 
 @end

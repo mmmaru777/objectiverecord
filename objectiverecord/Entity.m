@@ -16,7 +16,6 @@
 @synthesize column_name_array;
 @synthesize column_type_array;
 
-
 - (void)finalize {
   [dbProvider close];
   [super finalize];
@@ -69,7 +68,6 @@
     sql = [NSString stringWithFormat:@"%@ WHERE rowid = %d;", sql, lastRowId];
   }
   lastRowId = [[dbProvider executeQuery:sql withArgument:nil] integerValue];
-  // NSLog(@"lastRowId : %ld", lastRowId);
 }
 
 @end
