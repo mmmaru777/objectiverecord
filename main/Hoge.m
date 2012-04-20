@@ -24,7 +24,7 @@
   self.str  = nil;
   self.date = nil;
   self.data = nil;
-	[super dealloc];
+  [super dealloc];
 }
 
 @end
