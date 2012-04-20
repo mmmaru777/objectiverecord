@@ -1,2 +1,4 @@
 #for osx
 .DS_Store
+xcuserdata
+project.xcworkspace
