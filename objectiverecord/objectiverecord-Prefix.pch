@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'objectiverecord' target in the 'objectiverecord' project.
+//
+
+#ifdef __OBJC__
+#import <Foundation/Foundation.h>
+#endif

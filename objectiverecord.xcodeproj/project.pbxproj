@@ -1,0 +1,375 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BA28879815404398007D0ADA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA28879715404398007D0ADA /* Cocoa.framework */; };
+		BA2887AC154044B0007D0ADA /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2887AB154044B0007D0ADA /* libsqlite3.dylib */; };
+		BA2887B5154045AB007D0ADA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2887B4154045AB007D0ADA /* Foundation.framework */; };
+		BA2887B8154045AB007D0ADA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2887B7154045AB007D0ADA /* main.m */; };
+		BA2887CB154046E9007D0ADA /* EntityManager.h in Headers */ = {isa = PBXBuildFile; fileRef = BA2887C9154046E9007D0ADA /* EntityManager.h */; };
+		BA2887CC154046E9007D0ADA /* EntityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2887CA154046E9007D0ADA /* EntityManager.m */; };
+		BA2887D115404779007D0ADA /* Entity.h in Headers */ = {isa = PBXBuildFile; fileRef = BA2887CF15404779007D0ADA /* Entity.h */; };
+		BA2887D215404779007D0ADA /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2887D015404779007D0ADA /* Entity.m */; };
+		BA2887D6154047AA007D0ADA /* DatabaseProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = BA2887D4154047AA007D0ADA /* DatabaseProvider.h */; };
+		BA2887D7154047AA007D0ADA /* DatabaseProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2887D5154047AA007D0ADA /* DatabaseProvider.m */; };
+		BA2887E41540493C007D0ADA /* objectiverecord-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = BA2887E31540493C007D0ADA /* objectiverecord-Prefix.pch */; };
+		BA2887E615404A23007D0ADA /* objectiverecord.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA28879415404398007D0ADA /* objectiverecord.dylib */; };
+		BA2887E715404A3D007D0ADA /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2887AB154044B0007D0ADA /* libsqlite3.dylib */; };
+		BA2887E815404AF7007D0ADA /* Hoge.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2887DA154047E4007D0ADA /* Hoge.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BA2887B0154045AA007D0ADA /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		BA28879415404398007D0ADA /* objectiverecord.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = objectiverecord.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA28879715404398007D0ADA /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		BA28879A15404398007D0ADA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		BA28879B15404398007D0ADA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		BA28879C15404398007D0ADA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		BA2887AB154044B0007D0ADA /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		BA2887B2154045AA007D0ADA /* main */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = main; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA2887B4154045AB007D0ADA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		BA2887B7154045AB007D0ADA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BA2887C9154046E9007D0ADA /* EntityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityManager.h; sourceTree = "<group>"; };
+		BA2887CA154046E9007D0ADA /* EntityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityManager.m; sourceTree = "<group>"; };
+		BA2887CF15404779007D0ADA /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
+		BA2887D015404779007D0ADA /* Entity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entity.m; sourceTree = "<group>"; };
+		BA2887D4154047AA007D0ADA /* DatabaseProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseProvider.h; sourceTree = "<group>"; };
+		BA2887D5154047AA007D0ADA /* DatabaseProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseProvider.m; sourceTree = "<group>"; };
+		BA2887D9154047E4007D0ADA /* Hoge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hoge.h; sourceTree = "<group>"; };
+		BA2887DA154047E4007D0ADA /* Hoge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hoge.m; sourceTree = "<group>"; };
+		BA2887E31540493C007D0ADA /* objectiverecord-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "objectiverecord-Prefix.pch"; sourceTree = "<group>"; };
+		BA2887E5154049C9007D0ADA /* main-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "main-Prefix.pch"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BA28879115404398007D0ADA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA2887AC154044B0007D0ADA /* libsqlite3.dylib in Frameworks */,
+				BA28879815404398007D0ADA /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA2887AF154045AA007D0ADA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA2887E715404A3D007D0ADA /* libsqlite3.dylib in Frameworks */,
+				BA2887E615404A23007D0ADA /* objectiverecord.dylib in Frameworks */,
+				BA2887B5154045AB007D0ADA /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BA28878915404398007D0ADA = {
+			isa = PBXGroup;
+			children = (
+				BA2887AB154044B0007D0ADA /* libsqlite3.dylib */,
+				BA28879D15404398007D0ADA /* objectiverecord */,
+				BA2887B6154045AB007D0ADA /* main */,
+				BA28879615404398007D0ADA /* Frameworks */,
+				BA28879515404398007D0ADA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BA28879515404398007D0ADA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BA28879415404398007D0ADA /* objectiverecord.dylib */,
+				BA2887B2154045AA007D0ADA /* main */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BA28879615404398007D0ADA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BA28879715404398007D0ADA /* Cocoa.framework */,
+				BA2887B4154045AB007D0ADA /* Foundation.framework */,
+				BA28879915404398007D0ADA /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BA28879915404398007D0ADA /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BA28879A15404398007D0ADA /* AppKit.framework */,
+				BA28879B15404398007D0ADA /* CoreData.framework */,
+				BA28879C15404398007D0ADA /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		BA28879D15404398007D0ADA /* objectiverecord */ = {
+			isa = PBXGroup;
+			children = (
+				BA2887DE154048D0007D0ADA /* Supporting Files */,
+				BA2887C9154046E9007D0ADA /* EntityManager.h */,
+				BA2887CA154046E9007D0ADA /* EntityManager.m */,
+				BA2887CF15404779007D0ADA /* Entity.h */,
+				BA2887D015404779007D0ADA /* Entity.m */,
+				BA2887D4154047AA007D0ADA /* DatabaseProvider.h */,
+				BA2887D5154047AA007D0ADA /* DatabaseProvider.m */,
+			);
+			path = objectiverecord;
+			sourceTree = "<group>";
+		};
+		BA2887B6154045AB007D0ADA /* main */ = {
+			isa = PBXGroup;
+			children = (
+				BA2887B7154045AB007D0ADA /* main.m */,
+				BA2887D9154047E4007D0ADA /* Hoge.h */,
+				BA2887DA154047E4007D0ADA /* Hoge.m */,
+				BA2887E5154049C9007D0ADA /* main-Prefix.pch */,
+			);
+			path = main;
+			sourceTree = "<group>";
+		};
+		BA2887DE154048D0007D0ADA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BA2887E31540493C007D0ADA /* objectiverecord-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		BA28879215404398007D0ADA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA2887CB154046E9007D0ADA /* EntityManager.h in Headers */,
+				BA2887D115404779007D0ADA /* Entity.h in Headers */,
+				BA2887D6154047AA007D0ADA /* DatabaseProvider.h in Headers */,
+				BA2887E41540493C007D0ADA /* objectiverecord-Prefix.pch in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		BA28879315404398007D0ADA /* objectiverecord */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA2887A515404399007D0ADA /* Build configuration list for PBXNativeTarget "objectiverecord" */;
+			buildPhases = (
+				BA28879015404398007D0ADA /* Sources */,
+				BA28879115404398007D0ADA /* Frameworks */,
+				BA28879215404398007D0ADA /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = objectiverecord;
+			productName = objectiverecord;
+			productReference = BA28879415404398007D0ADA /* objectiverecord.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+		BA2887B1154045AA007D0ADA /* main */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA2887BD154045AB007D0ADA /* Build configuration list for PBXNativeTarget "main" */;
+			buildPhases = (
+				BA2887AE154045AA007D0ADA /* Sources */,
+				BA2887AF154045AA007D0ADA /* Frameworks */,
+				BA2887B0154045AA007D0ADA /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = main;
+			productName = main;
+			productReference = BA2887B2154045AA007D0ADA /* main */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BA28878B15404398007D0ADA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = org.iskm;
+			};
+			buildConfigurationList = BA28878E15404398007D0ADA /* Build configuration list for PBXProject "objectiverecord" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = BA28878915404398007D0ADA;
+			productRefGroup = BA28879515404398007D0ADA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BA28879315404398007D0ADA /* objectiverecord */,
+				BA2887B1154045AA007D0ADA /* main */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BA28879015404398007D0ADA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA2887CC154046E9007D0ADA /* EntityManager.m in Sources */,
+				BA2887D215404779007D0ADA /* Entity.m in Sources */,
+				BA2887D7154047AA007D0ADA /* DatabaseProvider.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA2887AE154045AA007D0ADA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA2887E815404AF7007D0ADA /* Hoge.m in Sources */,
+				BA2887B8154045AB007D0ADA /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		BA2887A315404399007D0ADA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		BA2887A415404399007D0ADA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		BA2887A615404399007D0ADA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "objectiverecord/objectiverecord-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		BA2887A715404399007D0ADA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "objectiverecord/objectiverecord-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		BA2887BE154045AB007D0ADA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "main/main-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		BA2887BF154045AB007D0ADA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "main/main-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BA28878E15404398007D0ADA /* Build configuration list for PBXProject "objectiverecord" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA2887A315404399007D0ADA /* Debug */,
+				BA2887A415404399007D0ADA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BA2887A515404399007D0ADA /* Build configuration list for PBXNativeTarget "objectiverecord" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA2887A615404399007D0ADA /* Debug */,
+				BA2887A715404399007D0ADA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BA2887BD154045AB007D0ADA /* Build configuration list for PBXNativeTarget "main" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA2887BE154045AB007D0ADA /* Debug */,
+				BA2887BF154045AB007D0ADA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BA28878B15404398007D0ADA /* Project object */;
+}
