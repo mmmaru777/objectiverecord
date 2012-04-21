@@ -7,6 +7,7 @@
 //
 
 #import "Entity.h"
+#import "Entity+Local.h"
 
 @implementation Entity
 

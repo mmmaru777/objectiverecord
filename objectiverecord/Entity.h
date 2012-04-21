@@ -11,19 +11,19 @@
 
 @interface Entity : NSObject {
   NSNumber *rowId;
+  // private property
   DatabaseProvider *dbProvider;
   NSString *table_name;
   NSArray *column_name_array;
   NSArray *column_type_array;
+  // end of private property
 }
 
-@property(retain) NSNumber *rowId; 
-@property(retain) DatabaseProvider* dbProvider;
-@property(retain) NSString *table_name;
-@property(retain) NSArray *column_name_array;
-@property(retain) NSArray *column_type_array;
-
+@property(retain) NSNumber *rowId;
 - (void) save;
 
 @end
+
+
+
 

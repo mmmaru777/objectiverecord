@@ -8,11 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "Entity.h"
-#import "DatabaseProvider.h"
 
 @interface EntityManager : NSObject {
   NSString* dbPath;
-  DatabaseProvider* dbProvider;
 }
 
 - (id)initWithDataPath:(NSString *)path;
@@ -20,8 +18,6 @@
 - (Entity *)create:(NSString *)className;
 - (void) delete:(NSString *)className;
 - (void) delete:(NSString *)className withArgument:(NSDictionary *) arg;
-- (void) delete:(NSString *)className withSql:(NSString *)sqlString;
-- (NSArray *)find:(NSString *)className withSql:(NSString *)sqlString;
 - (NSArray *)find:(NSString *)className;
 - (NSArray *)find:(NSString *)className withArgument:(NSDictionary *) arg;
 - (NSString *)getdbPath;

@@ -112,16 +112,16 @@ int main (int argc, const char * argv[])
       NSLog(@"f is : %f", fHoge.f);
       NSLog(@"d is : %f", fHoge.d);
     }
-    NSLog(@" ====================Start select using condition  ====================");
+    NSLog(@" ==================== End of select using condition  ====================");
     
     NSLog(@" ==================== Start update using selected entity ====================");
     for (id obj in nb) {
       Hoge *fHoge = (Hoge*)obj;
       NSLog(@"===== row id : %@ =====", fHoge.rowId);
-      NSLog(@"count is: %d", fHoge.count);
+      NSLog(@"before update count is: %d", fHoge.count);
       fHoge.count = 100;
       [fHoge save];
-      NSLog(@"count is: %d", fHoge.count);
+      NSLog(@"after update count is: %d", fHoge.count);
     }
     NSLog(@" ==================== End of update using selected entity  ====================");
     

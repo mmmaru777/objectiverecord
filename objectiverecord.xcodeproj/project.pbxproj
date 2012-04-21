@@ -21,6 +21,10 @@
 		BA2887E615404A23007D0ADA /* objectiverecord.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA28879415404398007D0ADA /* objectiverecord.dylib */; };
 		BA2887E715404A3D007D0ADA /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2887AB154044B0007D0ADA /* libsqlite3.dylib */; };
 		BA2887E815404AF7007D0ADA /* Hoge.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2887DA154047E4007D0ADA /* Hoge.m */; };
+		BAC2902E1542CCBF00714CB6 /* EntityManager+Local.h in Headers */ = {isa = PBXBuildFile; fileRef = BAC2902C1542CCBF00714CB6 /* EntityManager+Local.h */; };
+		BAC2902F1542CCBF00714CB6 /* EntityManager+Local.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC2902D1542CCBF00714CB6 /* EntityManager+Local.m */; };
+		BAC290371542D76B00714CB6 /* Entity+Local.h in Headers */ = {isa = PBXBuildFile; fileRef = BAC290351542D76B00714CB6 /* Entity+Local.h */; };
+		BAC290381542D76B00714CB6 /* Entity+Local.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC290361542D76B00714CB6 /* Entity+Local.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -55,6 +59,10 @@
 		BA2887DA154047E4007D0ADA /* Hoge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hoge.m; sourceTree = "<group>"; };
 		BA2887E31540493C007D0ADA /* objectiverecord-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "objectiverecord-Prefix.pch"; sourceTree = "<group>"; };
 		BA2887E5154049C9007D0ADA /* main-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "main-Prefix.pch"; sourceTree = "<group>"; };
+		BAC2902C1542CCBF00714CB6 /* EntityManager+Local.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EntityManager+Local.h"; sourceTree = "<group>"; };
+		BAC2902D1542CCBF00714CB6 /* EntityManager+Local.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EntityManager+Local.m"; sourceTree = "<group>"; };
+		BAC290351542D76B00714CB6 /* Entity+Local.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Entity+Local.h"; sourceTree = "<group>"; };
+		BAC290361542D76B00714CB6 /* Entity+Local.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Entity+Local.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +138,10 @@
 				BA2887D015404779007D0ADA /* Entity.m */,
 				BA2887D4154047AA007D0ADA /* DatabaseProvider.h */,
 				BA2887D5154047AA007D0ADA /* DatabaseProvider.m */,
+				BAC2902C1542CCBF00714CB6 /* EntityManager+Local.h */,
+				BAC2902D1542CCBF00714CB6 /* EntityManager+Local.m */,
+				BAC290351542D76B00714CB6 /* Entity+Local.h */,
+				BAC290361542D76B00714CB6 /* Entity+Local.m */,
 			);
 			path = objectiverecord;
 			sourceTree = "<group>";
@@ -164,6 +176,8 @@
 				BA2887D115404779007D0ADA /* Entity.h in Headers */,
 				BA2887D6154047AA007D0ADA /* DatabaseProvider.h in Headers */,
 				BA2887E41540493C007D0ADA /* objectiverecord-Prefix.pch in Headers */,
+				BAC2902E1542CCBF00714CB6 /* EntityManager+Local.h in Headers */,
+				BAC290371542D76B00714CB6 /* Entity+Local.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +253,8 @@
 				BA2887CC154046E9007D0ADA /* EntityManager.m in Sources */,
 				BA2887D215404779007D0ADA /* Entity.m in Sources */,
 				BA2887D7154047AA007D0ADA /* DatabaseProvider.m in Sources */,
+				BAC2902F1542CCBF00714CB6 /* EntityManager+Local.m in Sources */,
+				BAC290381542D76B00714CB6 /* Entity+Local.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
