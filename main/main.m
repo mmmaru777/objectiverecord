@@ -47,10 +47,11 @@ int main (int argc, const char * argv[])
     NSLog(@"sqliteVersion: %@", [entityManager sqliteVersion]);
     NSLog(@"getdbPath: %@", [entityManager getdbPath]);
     
-    // test create table
+    NSLog(@" ==================== Start create table ====================");
     Hoge *hoge = (Hoge *)[entityManager create:@"Hoge"];
+    NSLog(@" ==================== End of create table ====================");
     
-    // test insert
+    NSLog(@" ==================== Start insert ====================");
     hoge.count = 3;
     hoge.f = 1.2f;
     hoge.d = 3.45;
@@ -58,32 +59,33 @@ int main (int argc, const char * argv[])
     hoge.str = @"test";
     hoge.i = 1;
     hoge.b = NO;
-    
     NSDictionary *dic =[NSDictionary dictionaryWithObject:@"hoge" forKey:@"KEY"];
     hoge.data = [NSKeyedArchiver archivedDataWithRootObject:dic];; 
-  
     [hoge save];
+    NSLog(@" ==================== End of insert ====================");
     
-    // test update
+    NSLog(@" ==================== Start update ====================");
     hoge.count = 4;
     [hoge save];
+    NSLog(@" ==================== End of update ====================");
     
-    // test sequence of updating
+    NSLog(@" ==================== Start update2 ====================");
     hoge.str = @"OK?";
     [hoge save];
+    NSLog(@" ==================== End of update2 ====================");
     
-    // test another entity if table is already exist.
+    NSLog(@" ==================== Start create table2 & insert====================");
     Hoge *hogehoge = (Hoge *)[entityManager create:@"Hoge"];
     hogehoge.count = 10;
     hogehoge.str = @"OK2";
     [hogehoge save];
+    NSLog(@" ==================== End of create table2 & insert====================");
     
-    
-    // test find all data
+    NSLog(@" ==================== Start select all ====================");
     NSArray *na = [entityManager find:@"Hoge"];
-    NSLog(@" ==================== Start find all ====================");
     for (id obj in na) {
       Hoge *fHoge = (Hoge*)obj;
+      NSLog(@"===== row id : %@ =====", fHoge.rowId);
       NSLog(@"count is: %d", fHoge.count);
       NSLog(@"str is : %@", fHoge.str);
       NSLog(@"date is : %@", fHoge.date);
@@ -92,16 +94,15 @@ int main (int argc, const char * argv[])
       NSLog(@"b is : %d", fHoge.b);
       NSLog(@"f is : %f", fHoge.f);
       NSLog(@"d is : %f", fHoge.d);
-      
     }
-    NSLog(@" ==================== End of find all ====================");
+    NSLog(@" ==================== End of select all ====================");
     
-    // test find data
+    NSLog(@" ==================== Start select using condition ====================");
     NSDictionary *args = [NSDictionary dictionaryWithObjectsAndKeys:@"='OK?'", @"str", @"< 6", @"count", nil];
     NSArray *nb = [entityManager find:@"Hoge" withArgument:args];
-    NSLog(@" ==================== Start find  ====================");
     for (id obj in nb) {
       Hoge *fHoge = (Hoge*)obj;
+      NSLog(@"===== row id : %@ =====", fHoge.rowId);
       NSLog(@"count is: %d", fHoge.count);
       NSLog(@"str is : %@", fHoge.str);
       NSLog(@"date is : %@", fHoge.date);
@@ -111,15 +112,27 @@ int main (int argc, const char * argv[])
       NSLog(@"f is : %f", fHoge.f);
       NSLog(@"d is : %f", fHoge.d);
     }
-    NSLog(@" ==================== End of find  ====================");
+    NSLog(@" ====================Start select using condition  ====================");
     
-    // test delete data
+    NSLog(@" ==================== Start update using selected entity ====================");
+    for (id obj in nb) {
+      Hoge *fHoge = (Hoge*)obj;
+      NSLog(@"===== row id : %@ =====", fHoge.rowId);
+      NSLog(@"count is: %d", fHoge.count);
+      fHoge.count = 100;
+      [fHoge save];
+      NSLog(@"count is: %d", fHoge.count);
+    }
+    NSLog(@" ==================== End of update using selected entity  ====================");
+    
+    NSLog(@" ==================== Start delete using condition ====================");
     NSDictionary *delargs = [NSDictionary dictionaryWithObjectsAndKeys:@"='OK?'", @"str", @"< 6", @"count", nil];
     [entityManager delete:@"Hoge" withArgument:delargs];
+    NSLog(@" ==================== End of delete using condition ====================");
     
-    // test delete all data
+    NSLog(@" ==================== Start delete all  ====================");
     [entityManager delete:@"Hoge"];
-    
+    NSLog(@" ==================== End of delete all ====================");
     /*
     // test multi object
     [hoge release];

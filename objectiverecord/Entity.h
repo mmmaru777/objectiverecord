@@ -10,14 +10,14 @@
 #import "DatabaseProvider.h"
 
 @interface Entity : NSObject {
-  NSInteger lastRowId;
+  NSNumber *rowId;
   DatabaseProvider *dbProvider;
   NSString *table_name;
   NSArray *column_name_array;
   NSArray *column_type_array;
 }
 
-@property NSInteger lastRowId; 
+@property(retain) NSNumber *rowId; 
 @property(retain) DatabaseProvider* dbProvider;
 @property(retain) NSString *table_name;
 @property(retain) NSArray *column_name_array;

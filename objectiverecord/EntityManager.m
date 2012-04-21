@@ -9,6 +9,34 @@
 #import "EntityManager.h"
 #import <objc/runtime.h>
 
+@interface EntityManager(Local)
+-(NSString *) or_buildFindSQL:(NSString *)className;
+@end
+
+@implementation EntityManager(Local)
+
+-(NSString *) or_buildFindSQL:(NSString *)className {
+  NSString* sql = [[NSString stringWithFormat:@"SELECT rowid, "] autorelease];
+  Class clazz = NSClassFromString(className);
+  unsigned int outCount;
+  objc_property_t *properties = class_copyPropertyList(clazz, &outCount);
+  
+  for (int i = 0; i < outCount; i++) {
+    objc_property_t property = properties[i];
+    const char *property_name = property_getName(property);
+    NSString *property_nameString =[NSString stringWithUTF8String:property_name];
+    sql = [NSString stringWithFormat:@"%@ %@", sql, property_nameString];
+    if(i < (outCount - 1)) {
+      sql = [NSString stringWithFormat:@"%@, ",sql];
+    }
+  }
+  sql = [NSString stringWithFormat:@"%@ FROM %@", sql, className];
+  return sql;
+}
+
+@end
+
+
 @implementation EntityManager
 
 - (id)initWithDataPath:(NSString *)path {
@@ -88,7 +116,7 @@
           [column_type_array addObject:@"BLOB"];
         }
       }
-        break;
+      break;
     }
   } 
   
@@ -100,7 +128,6 @@
     }
   }
   sql = [NSString stringWithFormat:@"%@ )", sql];
-  // NSLog(@"sql: %@", sql);
   
   [dbProvider open];
   [dbProvider executeQuery:sql withArgument:nil];
@@ -128,11 +155,13 @@
   objc_property_t *properties = class_copyPropertyList(clazz, &outCount);
   NSMutableArray *column_name_array = [[NSMutableArray alloc] init];
   NSMutableArray *column_type_array = [[NSMutableArray alloc] init];
-  
   NSMutableDictionary *nameTypeDic  = [NSMutableDictionary dictionary];
   
+  [column_name_array addObject:@"rowid"];
+  [column_type_array addObject:@"int"];
+  [nameTypeDic setObject:[column_type_array objectAtIndex:0] forKey:[column_name_array objectAtIndex:0]];
+  
   for (int i = 0; i < outCount; i++) {
-    
     objc_property_t property = properties[i];
     const char *property_name = property_getName(property);
     const char *property_type = property_getAttributes(property);
@@ -146,16 +175,16 @@
     //NSLog(@"type: %c", property_type[1]);
     switch(property_type[1]) {
       case 'i' : //int
-        [column_type_array addObject:@"int"];
+        [column_type_array addObject:@"INTEGER"];
         break;
       case 'f' : //float
-        [column_type_array addObject:@"float"];
+        [column_type_array addObject:@"REAL"];
         break;
       case 'd' : //double
-        [column_type_array addObject:@"double"];
+        [column_type_array addObject:@"REAL"];
         break;
       case 'q' : //NSInteger
-        [column_type_array addObject:@"NSInteger"];
+        [column_type_array addObject:@"INTEGER"];
         break;
       case 'c' : //BOOL
         [column_type_array addObject:@"BOOL"];
@@ -164,19 +193,18 @@
       {
         NSString *typeClassString = [typeAttribute substringWithRange:NSMakeRange(3, [typeAttribute length]-4)];
         if ([typeClassString isEqualToString:@"NSString"]) {
-          [column_type_array addObject:@"NSString"];
+          [column_type_array addObject:@"TEXT"];
         } else if ([typeClassString isEqualToString:@"NSDate"]) {
-          [column_type_array addObject:@"NSDate"];
+          [column_type_array addObject:@"DATETIME"];
         } else if ([typeClassString isEqualToString:@"NSData"]) {
-          [column_type_array addObject:@"NSData"];
+          [column_type_array addObject:@"BLOB"];
         }
       }
         break;
     }
-    
-    [nameTypeDic setObject:[column_type_array objectAtIndex:i] forKey:[column_name_array objectAtIndex:i]];
+    [nameTypeDic setObject:[column_type_array objectAtIndex:i+1] forKey:[column_name_array objectAtIndex:i+1]];
   } 
-  
+    
   NSString *sql = [[NSString stringWithFormat:@"%@", sqlString] autorelease];
   
   [dbProvider open];
@@ -184,29 +212,28 @@
   
   for(id obj in res) {
     id createdClass = [[clazz alloc] init];
+    Entity *entity = (Entity *)createdClass;
     for (id key in obj) {
       NSString *type = [nameTypeDic objectForKey:key];
       id value = [obj objectForKey:key];
-      if([type isEqualToString:@"int"]) {
-        // NSLog(@"number: %@", [NSNumber numberWithInt:[value intValue]] );
+      if([key isEqualToString:@"rowid"]){
+        [entity setRowId: value];
+      } else if([type isEqualToString:@"INTEGER"]) {
         [createdClass setValue: [NSNumber numberWithInt:[value intValue]] forKey:key];
-      } else if ([type isEqualToString:@"float"]) {
-        [createdClass setValue: [NSNumber numberWithFloat:[value floatValue]] forKey:key];
-      } else if ([type isEqualToString:@"double"]) {
+      } else if ([type isEqualToString:@"REAL"]) {
         [createdClass setValue: [NSNumber numberWithDouble:[value doubleValue]] forKey:key];
       } else if ([type isEqualToString:@"BOOL"]) {
         [createdClass setValue: [NSNumber numberWithBool:[value boolValue]] forKey:key];
-      } else if ([type isEqualToString:@"NSInteger"]){
+      } else if ([type isEqualToString:@"Integer"]){
         [createdClass setValue: [NSNumber numberWithInteger:[value integerValue]] forKey:key];
-      } else if ([type isEqualToString:@"NSString"]){
+      } else if ([type isEqualToString:@"TEXT"]){
         [createdClass setValue: (NSString *)value forKey:key]; 
-      } else if ([type isEqualToString:@"NSDate"]){
+      } else if ([type isEqualToString:@"DATETIME"]){
         [createdClass setValue: (NSDate *)value forKey:key]; 
-      } else if ([type isEqualToString:@"NSData"]){
+      } else if ([type isEqualToString:@"BLOB"]){
         [createdClass setValue: (NSData *)value forKey:key]; 
       }
     }
-    Entity *entity = (Entity *)createdClass;
     [entity setDbProvider: dbProvider];
     [entity setTable_name: className];
     [entity setColumn_name_array: column_name_array];
@@ -222,12 +249,12 @@
 }
 
 - (NSArray *)find:(NSString *)className {
-  NSString* sql = [[NSString stringWithFormat:@"SELECT * FROM %@",className] autorelease];
+  NSString* sql = [self or_buildFindSQL:className];
   return [self find: className withSql:sql];
 }
 
 - (NSArray *)find:(NSString *)className withArgument:(NSDictionary *) arg {
-  NSString *sql = [[NSString stringWithFormat:@"SELECT * FROM %@", className] autorelease];
+  NSString* sql = [self or_buildFindSQL:className];
   
   NSArray *keys = [arg allKeys];
   sql = [NSString stringWithFormat:@"%@ WHERE %@ %@ ", sql, [keys objectAtIndex:0], [arg objectForKey:[keys objectAtIndex:0]]];

@@ -128,18 +128,22 @@ static int MAX_RETRY_NUMBER = 10;
         return nil;
       }
     } else if (resultCode == SQLITE_DONE) {
-      // create or update or delete
-      if([[sql substringToIndex:1] isEqualToString:@"I"] || 
-         [[sql substringToIndex:1] isEqualToString:@"U"] || 
-         [[sql substringToIndex:1] isEqualToString:@"D"]) {
+      // create 
+      if([[sql substringToIndex:1] isEqualToString:@"I"]) {
         lastRowId = sqlite3_last_insert_rowid(db);
         sqlite3_finalize(statement);
         statement = nil;
         NSNumber *ns_lastRowId = [[[NSNumber alloc] initWithLong:lastRowId] autorelease];
         return ns_lastRowId;
+      // update or delete
+      } else if ([[sql substringToIndex:1] isEqualToString:@"U"] || 
+                 [[sql substringToIndex:1] isEqualToString:@"D"] ) {
+        sqlite3_finalize(statement);
+        statement = nil;
+        return nil;
       }
     } else if(resultCode == SQLITE_ROW)    {
-      //sqlite3_step() has another row ready 
+      // sqlite3_step() has another row ready 
       // check if a table exists
       if ([arg isKindOfClass:[NSString class]] && [arg isEqualToString:@"0x00"]) {
         res = sqlite3_column_int64(statement, 0);
