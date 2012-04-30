@@ -14,3 +14,6 @@ Getting Started
 
 At first, you need to import libsqlite3.dylib in your project. A main.m can help you how to use this library. 
 
+License
+----------
+MIT license : see www.opensource.org/licenses/MIT
