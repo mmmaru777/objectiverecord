@@ -6,7 +6,6 @@
 //  Copyright (c) 2012 org.iskm. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "Entity.h"
 
 @interface EntityManager : NSObject {
@@ -14,6 +13,7 @@
 }
 
 - (id)initWithDataPath:(NSString *)path;
+- (BOOL) removeDB:(NSString *)path;
 - (NSString *)sqliteVersion;
 - (Entity *)create:(NSString *)className;
 - (void) delete:(NSString *)className;

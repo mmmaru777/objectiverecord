@@ -22,7 +22,7 @@
   NSLog(@"thread OK");
   @try {
     pool = [[NSAutoreleasePool alloc] init];
-    EntityManager *entityManager = [[[EntityManager alloc] initWithDataPath:@"/Users/KENJI/Temp/test.db"] autorelease];
+    EntityManager *entityManager = [[[EntityManager alloc] initWithDataPath:@"/Users/maru/Tmp/test.db"] autorelease];
     Hoge *thoge = (Hoge *)[entityManager create:@"Hoge"];
     for(int i=0; i<5; i++) {
       thoge.count = 10;
@@ -43,7 +43,7 @@ int main (int argc, const char * argv[])
   
   @autoreleasepool {
     
-    EntityManager *entityManager = [[EntityManager alloc] initWithDataPath:@"/Users/KENJI/Temp/test.db"];
+    EntityManager *entityManager = [[EntityManager alloc] initWithDataPath:@"/Users/maru/Tmp/test.db"];
     NSLog(@"sqliteVersion: %@", [entityManager sqliteVersion]);
     NSLog(@"getdbPath: %@", [entityManager getdbPath]);
     

@@ -42,6 +42,17 @@
   return [dbProvider sqliteVersion];
 }
 
+- (BOOL) removeDB:(NSString *)path
+{
+  NSFileManager* manager = [NSFileManager defaultManager];
+  NSError *error = nil;
+  if(![manager removeItemAtPath:path error:&error]) {
+    NSLog(@"Failed remove database file due to error:%@", error);
+    return FALSE;
+  }
+  return TRUE;
+}
+
 - (Entity *)create:(NSString *)className {
   
   Class clazz = NSClassFromString(className);
