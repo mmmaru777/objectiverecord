@@ -58,8 +58,8 @@
   Class clazz = NSClassFromString(className);
   unsigned int outCount;
   objc_property_t *properties = class_copyPropertyList(clazz, &outCount);
-  NSMutableArray *column_name_array = [[NSMutableArray alloc] init];
-  NSMutableArray *column_type_array = [[NSMutableArray alloc] init];
+  NSMutableArray *column_name_array = [NSMutableArray array];
+  NSMutableArray *column_type_array = [NSMutableArray array];
   
   for (int i = 0; i < outCount; i++) {
     

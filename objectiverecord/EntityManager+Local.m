@@ -34,13 +34,13 @@
 
 - (NSArray *)find:(NSString *)className withSql:(NSString *)sqlString {
   
-  NSMutableArray *resultEntities = [[[NSMutableArray alloc] init] autorelease];
+  NSMutableArray *resultEntities = [NSMutableArray array];
   
   Class clazz = NSClassFromString(className);
   unsigned int outCount;
   objc_property_t *properties = class_copyPropertyList(clazz, &outCount);
-  NSMutableArray *column_name_array = [[NSMutableArray alloc] init];
-  NSMutableArray *column_type_array = [[NSMutableArray alloc] init];
+  NSMutableArray *column_name_array = [NSMutableArray array];
+  NSMutableArray *column_type_array = [NSMutableArray array];
   NSMutableDictionary *nameTypeDic  = [NSMutableDictionary dictionary];
   
   [column_name_array addObject:@"rowid"];

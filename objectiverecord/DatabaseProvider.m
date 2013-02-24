@@ -112,7 +112,7 @@ static int MAX_RETRY_NUMBER = 10;
   
   sqlite3_reset(statement);
   int resultCode = -1;
-  NSMutableArray *selectArray = [[[NSMutableArray alloc]init]autorelease];
+  NSMutableArray *selectArray = [NSMutableArray array];
   
   do { 
     retry = NO;
