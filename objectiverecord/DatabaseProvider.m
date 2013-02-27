@@ -133,7 +133,7 @@ static int MAX_RETRY_NUMBER = 10;
         lastRowId = sqlite3_last_insert_rowid(db);
         sqlite3_finalize(statement);
         statement = nil;
-        NSNumber *ns_lastRowId = [[[NSNumber alloc] initWithLong:lastRowId] autorelease];
+        NSNumber *ns_lastRowId = [NSNumber numberWithInteger:lastRowId];
         return ns_lastRowId;
       // update or delete
       } else if ([[sql substringToIndex:1] isEqualToString:@"U"] || 
@@ -149,7 +149,7 @@ static int MAX_RETRY_NUMBER = 10;
         res = sqlite3_column_int64(statement, 0);
         sqlite3_finalize(statement);
         statement = nil;
-        NSNumber *ns_result = [[[NSNumber alloc] initWithLong:res] autorelease];
+        NSNumber *ns_result = [NSNumber numberWithInteger:res];
         return ns_result;
       }
       else if ([arg isKindOfClass:[NSArray class]]) {

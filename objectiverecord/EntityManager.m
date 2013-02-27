@@ -105,7 +105,7 @@
     }
   } 
   
-  NSString *sql = [[NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS %@ (",className] autorelease];
+  NSString *sql = [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS %@ (",className];
   for (int i = 0; i < [column_name_array count]; i++) {
     sql = [NSString stringWithFormat:@"%@ %@ %@", sql, [column_name_array objectAtIndex:i], [column_type_array objectAtIndex:i]];
     if (i < [column_name_array count]-1) {
@@ -151,12 +151,12 @@
 }
 
 - (void) delete:(NSString *)className {
-  NSString* sql = [[NSString stringWithFormat:@"DELETE FROM %@",className] autorelease];
+  NSString* sql = [NSString stringWithFormat:@"DELETE FROM %@",className];
   return [self delete:className withSql:sql];
 }
 
 - (void) delete:(NSString *)className withArgument:(NSDictionary *) arg {
-  NSString* sql = [[NSString stringWithFormat:@"DELETE FROM %@",className] autorelease];
+  NSString* sql = [NSString stringWithFormat:@"DELETE FROM %@",className];
   NSArray *keys = [arg allKeys];
   sql = [NSString stringWithFormat:@"%@ WHERE %@ %@ ", sql, [keys objectAtIndex:0], [arg objectForKey:[keys objectAtIndex:0]]];
   

@@ -14,7 +14,7 @@
 @implementation EntityManager(Local)
 
 -(NSString *) or_buildFindSQL:(NSString *)className {
-  NSString* sql = [[NSString stringWithFormat:@"SELECT rowid, "] autorelease];
+  NSString* sql = [NSString stringWithFormat:@"SELECT rowid, "];
   Class clazz = NSClassFromString(className);
   unsigned int outCount;
   objc_property_t *properties = class_copyPropertyList(clazz, &outCount);
@@ -91,7 +91,7 @@
     [nameTypeDic setObject:[column_type_array objectAtIndex:i+1] forKey:[column_name_array objectAtIndex:i+1]];
   } 
   
-  NSString *sql = [[NSString stringWithFormat:@"%@", sqlString] autorelease];
+  NSString *sql = [NSString stringWithFormat:@"%@", sqlString];
   
   [dbProvider open];
   id res = [dbProvider executeQuery:sql withArgument:column_name_array];
@@ -136,7 +136,7 @@
 
 - (void) delete:(NSString *)className withSql:(NSString *)sqlString {
   // check if a table exists
-  NSString *esql = [[NSString stringWithFormat:@"SELECT COUNT(NAME) FROM SQLITE_MASTER WHERE NAME='%@'", className] autorelease];
+  NSString *esql = [NSString stringWithFormat:@"SELECT COUNT(NAME) FROM SQLITE_MASTER WHERE NAME='%@'", className];
   [dbProvider open];
   // return 0 is table does not exist, 1 if it does.
   NSInteger table_exist_code = [[dbProvider executeQuery:esql withArgument:@"0x00"] integerValue];
